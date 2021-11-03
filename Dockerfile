@@ -1,6 +1,14 @@
 FROM golang:1.16-alpine
 
-#Defines you application repository
-ENV APPLICATION_PACKAGE=./cmd/internal
+WORKDIR /app
 
-ENV IGNORE_GO_GET=true
+COPY go.mod ./
+COPY go.sum ./
+
+RUN go mod download
+
+COPY *.go ./
+
+RUN go build -o /cmd/internal
+
+CMD ["worldplay1"]

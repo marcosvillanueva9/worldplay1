@@ -26,6 +26,6 @@ func main() {
 	//if err != nil {
 	//
 	//}
-	integration.Run()
 
+	integration.Run()
 }
